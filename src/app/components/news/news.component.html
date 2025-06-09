@@ -1,0 +1,19 @@
+<section class="news-section">
+  <h2>Latest Press Releases</h2>
+  <div class="news-list">
+    <article
+      *ngFor="let news of recentNews"
+      class="news-card"
+      tabindex="0"
+      role="article"
+    >
+      <img [src]="news.image" [alt]="news.title" />
+      <div class="news-text">
+        <span class="tag">{{ news.tag }}</span>
+        <time class="date">{{ news.date }}</time>
+        <h3>{{ news.title }}</h3>
+        <p>{{ news.description }}</p>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<div class="intro-text">
+  <h2>About Volvo</h2>
+  <p>
+    Volvo has a rich history of innovation, safety, and quality that dates back
+    to 1927. Renowned worldwide for engineering excellence, Volvo continues to
+    deliver cutting-edge vehicles with outstanding performance and style.
+  </p>
+  <p>
+    Discover the latest Volvo models and innovations in our launch collection
+    below.
+  </p>
+</div>
+
+<div class="carousel-container" *ngIf="launches.length > 0">
+  <div class="carousel-slide" [class.active]="i === currentIndex" *ngFor="let launch of launches; let i = index">
+    <img [src]="launch.imageUrl" [alt]="launch.modelName" />
+    <div class="carousel-caption">
+      <h2>{{ launch.modelName }}</h2>
+      <p>{{ launch.bodyType }} - {{ launch.modelType }}</p>
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" (click)="prev()">&#10094;</button>
+  <button class="carousel-btn next" (click)="next()">&#10095;</button>
+</div>

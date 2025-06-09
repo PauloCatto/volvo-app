@@ -1,0 +1,46 @@
+<section class="category-showcase">
+  <h2 class="section-title">Explore the Volvo Range</h2>
+  <div class="card-grid">
+    <mat-card class="card" (click)="navigateTo('cars')" tabindex="0" role="button" aria-label="Explore Cars category">
+      <img mat-card-image src="assets/images/car.jpg" alt="Volvo Cars" />
+      <mat-card-content>
+        <div class="card-header">
+          <img src="assets/images/volvo.png" alt="Volvo Logo" class="category-icon" />
+          <h3>Cars</h3>
+        </div>
+        <p>Experience urban comfort and safety combined with sleek and stylish design in Volvo cars. Perfect for your daily commute or weekend trips.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">View All</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="card" (click)="navigateTo('trucks')" tabindex="0" role="button" aria-label="Explore Trucks category">
+      <img mat-card-image src="assets/images/truck.jpg" alt="Volvo Trucks" />
+      <mat-card-content>
+        <div class="card-header">
+          <img src="assets/images/volvo.png" alt="Volvo Logo" class="category-icon" />
+          <h3>Trucks</h3>
+        </div>
+        <p>Robust and high-performance trucks designed for heavy-duty transport, integrating cutting-edge technology to maximize efficiency and safety.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">View All</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="card" (click)="navigateTo('bus')" tabindex="0" role="button" aria-label="Explore Bus category">
+      <img mat-card-image src="assets/images/bus.jpg" alt="Volvo Bus" />
+      <mat-card-content>
+        <div class="card-header">
+          <img src="assets/images/volvo.png" alt="Volvo Logo" class="category-icon" />
+          <h3>Bus</h3>
+        </div>
+        <p>Travel in style with Volvo buses that deliver comfort, efficiency, and top-tier safety for passengers on every journey.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">View All</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
