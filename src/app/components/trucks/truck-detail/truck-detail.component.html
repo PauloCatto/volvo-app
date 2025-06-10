@@ -1,1 +1,33 @@
-<p>truck-detail works!</p>
+<section class="trucks-hero">
+  <h2>Meet Our Powerful Lineup of Volvo Trucks</h2>
+  <p>
+    Designed for endurance, safety, and sustainability – Volvo trucks handle the most demanding routes around the globe.
+    Discover a range of electric and diesel trucks built for every type of journey.
+  </p>
+</section>
+
+<section class="trucks-grid">
+  <article class="truck-card" *ngFor="let truck of trucks">
+    <div class="truck-img">
+      <img [src]="truck.imageUrl" [alt]="truck.modelName" />
+    </div>
+    <div class="truck-info">
+      <h3>{{ truck.modelName }}</h3>
+      <div class="specs">
+        <div class="spec-item">
+          <div class="label">Type</div>
+          <div class="value">{{ truck.type }}</div>
+        </div>
+        <div class="spec-item">
+          <div class="label">Engine</div>
+          <div class="value">{{ truck.engineType }}</div>
+        </div>
+        <div class="spec-item">
+          <div class="label">Payload</div>
+          <div class="value">{{ truck.payload }}</div>
+        </div>
+      </div>
+      <button class="btn-secondary">More Info</button>
+    </div>
+  </article>
+</section>

@@ -1,1 +1,24 @@
-<p>car-detail works!</p>
+<div class="cars-intro">
+  <h2>Discover Our Range of Cars</h2>
+  <p>
+    Experience the perfect blend of innovation, elegance, and safety with Volvo's vehicle lineup.
+    From powerful SUVs to sleek electric models, every car is designed with Scandinavian precision
+    to offer you a unique and refined driving experience.
+  </p>
+</div>
+
+<div class="cars-container">
+  <div class="car-card" *ngFor="let car of cars">
+    <div class="car-image">
+      <img [src]="car.imageUrl" [alt]="car.modelName" />
+    </div>
+    <div class="car-content">
+      <div class="car-header">
+        <span class="body-type">{{ car.bodyType | titlecase }}</span>
+        <span class="badge">{{ car.modelType }}</span>
+      </div>
+      <h3 class="car-title">{{ car.modelName }}</h3>
+      <button class="btn">View Details</button>
+    </div>
+  </div>
+</div>
