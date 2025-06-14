@@ -5,10 +5,10 @@ import { NewsComponent } from "../news/news.component";
 import { FooterComponent } from "../footer/footer.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [HeroCarouselComponent, CategoryCardsComponent, NewsComponent, FooterComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    standalone: true,
+    imports: [HeroCarouselComponent, CategoryCardsComponent, NewsComponent, FooterComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {}

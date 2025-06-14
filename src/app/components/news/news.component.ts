@@ -4,11 +4,11 @@ import { VehicleDataService } from '../../core/services/vehicle-data.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-news',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './news.component.html',
-  styleUrl: './news.component.scss',
+    selector: 'app-news',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './news.component.html',
+    styleUrl: './news.component.scss'
 })
 export class NewsComponent implements OnInit {
   recentNews: News[] = [];

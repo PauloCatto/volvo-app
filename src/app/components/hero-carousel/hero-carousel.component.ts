@@ -4,11 +4,11 @@ import { VehicleDataService } from '../../core/services/vehicle-data.service';
 import { Launches } from '../../core/services/models/vehicle.model';
 
 @Component({
-  selector: 'app-hero-carousel',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './hero-carousel.component.html',
-  styleUrl: './hero-carousel.component.scss',
+    selector: 'app-hero-carousel',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './hero-carousel.component.html',
+    styleUrl: './hero-carousel.component.scss'
 })
 export class HeroCarouselComponent {
   private vehicleDataService = inject(VehicleDataService);

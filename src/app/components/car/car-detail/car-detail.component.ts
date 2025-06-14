@@ -4,11 +4,11 @@ import { VehicleDataService } from '../../../core/services/vehicle-data.service'
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-car-detail',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './car-detail.component.html',
-  styleUrl: './car-detail.component.scss',
+    selector: 'app-car-detail',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './car-detail.component.html',
+    styleUrl: './car-detail.component.scss'
 })
 export class CarDetailComponent {
   private vehicleService = inject(VehicleDataService);
