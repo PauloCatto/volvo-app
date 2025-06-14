@@ -1,33 +1,25 @@
-<section class="trucks-hero">
-  <h2>Meet Our Powerful Lineup of Volvo Trucks</h2>
+<section class="trucks-intro">
+  <h2>Discover Our Range of Trucks</h2>
   <p>
-    Designed for endurance, safety, and sustainability – Volvo trucks handle the most demanding routes around the globe.
-    Discover a range of electric and diesel trucks built for every type of journey.
+    Built for performance, endurance, and efficiency. Explore our lineup of
+    Volvo trucks designed to handle the toughest journeys with power and
+    reliability.
   </p>
 </section>
 
-<section class="trucks-grid">
-  <article class="truck-card" *ngFor="let truck of trucks">
-    <div class="truck-img">
+<section class="trucks-container">
+  <div class="truck-card" *ngFor="let truck of trucks">
+    <div class="truck-image">
       <img [src]="truck.imageUrl" [alt]="truck.modelName" />
     </div>
-    <div class="truck-info">
-      <h3>{{ truck.modelName }}</h3>
-      <div class="specs">
-        <div class="spec-item">
-          <div class="label">Type</div>
-          <div class="value">{{ truck.type }}</div>
-        </div>
-        <div class="spec-item">
-          <div class="label">Engine</div>
-          <div class="value">{{ truck.engineType }}</div>
-        </div>
-        <div class="spec-item">
-          <div class="label">Payload</div>
-          <div class="value">{{ truck.payload }}</div>
-        </div>
+    <div class="truck-content">
+      <div class="truck-header">
+        <span class="truck-type">{{ truck.type }}</span>
+        <span class="truck-badge">{{ truck.engineType }}</span>
       </div>
-      <button class="btn-secondary">More Info</button>
+      <h3 class="truck-title">{{ truck.modelName }}</h3>
+      <div class="truck-payload">Payload: {{ truck.payload }}</div>
+      <button class="btn">View Details</button>
     </div>
-  </article>
+  </div>
 </section>
