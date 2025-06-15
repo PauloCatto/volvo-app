@@ -9,6 +9,24 @@
       <a routerLink="/cars" routerLinkActive="active">Cars</a>
       <a routerLink="/trucks" routerLinkActive="active">Trucks</a>
       <a routerLink="/bus" routerLinkActive="active">Bus</a>
+
+      <button
+        class="icon-btn"
+        aria-label="Toggle dark mode"
+        (click)="toggleDarkMode()"
+        title="Toggle dark mode"
+      >
+        <span class="material-icons">dark_mode</span>
+      </button>
+
+      <button
+        class="icon-btn"
+        aria-label="Favorites"
+        (click)="toggleFavorites()"
+        title="Favorites"
+      >
+        <span class="material-icons">favorite_border</span>
+      </button>
     </nav>
   </div>
 </header>
