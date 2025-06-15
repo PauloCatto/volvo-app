@@ -23,7 +23,5 @@ export class HeaderComponent {
 
   toggleFavorites(): void {
     this.isFavorited = !this.isFavorited;
-    // Aqui você pode abrir um modal, um painel lateral, ou fazer outra ação com os favoritos
-    console.log('Favorites toggled:', this.isFavorited);
   }
 }
