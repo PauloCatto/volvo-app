@@ -1,11 +1,49 @@
+<p class="text-fields">
+  Here are all our Volvo dealership locations across Brazil. Browse the map,
+  explore each location, and find the dealership nearest to you for a
+  personalized Volvo experience.
+</p>
 
-<section class="map-intro">
-  <h2>Encontre a Volvo mais próxima</h2>
-  <p>
-    Nós da Volvo queremos facilitar sua jornada. Veja no mapa abaixo a sua localização atual e as concessionárias Volvo próximas da sua região.
-    Clique em uma delas para traçar a rota até lá com o tempo estimado de chegada.
-  </p>
-</section>
+<div class="map-container">
+  <google-map
+    height="400px"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="closeInfo()"
+    (mapInitialized)="mapReady($event)"
+  >
+    <!-- Marker da Localização Atual (Usuário) -->
+    <map-marker
+      *ngIf="currentPosition"
+      [position]="currentPosition"
+      [icon]="{
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 8,
+        fillColor: 'blue',
+        fillOpacity: 1,
+        strokeWeight: 1
+      }"
+      title="Your Location"
+    >
+    </map-marker>
 
-<div id="map" style="height: 500px;"></div>
+    <!-- Markers das Lojas -->
+    <map-marker
+      *ngFor="let store of stores"
+      [position]="{ lat: store.lat, lng: store.lng }"
+      [title]="store.name"
+      (mapClick)="openInfo(store, markerRef)"
+      #markerRef="mapMarker"
+    >
+    </map-marker>
 
+    <!-- Info Window -->
+    <map-info-window>
+      <div>
+        <h3>{{ selectedStore?.name }}</h3>
+        <button (click)="onMarkerClick(selectedStore!)">Trace Route</button>
+      </div>
+    </map-info-window>
+  </google-map>
+</div>

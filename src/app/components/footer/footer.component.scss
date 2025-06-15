@@ -1,0 +1,38 @@
+.footer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+  min-height: 56px;
+
+  background-color: #f8f9fa;
+  color: #495057;
+
+  border-top: 1px solid #dee2e6;
+
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+  min-width: 16px;
+}
+
+.footer-toolbar button {
+  font-weight: 500;
+  text-transform: none;
+  color: #495057;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.footer-toolbar button:hover {
+  background-color: #d3d3d3;
+  color: black;
+}

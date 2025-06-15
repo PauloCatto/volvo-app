@@ -1,69 +1,115 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import {
+  GoogleMapsModule,
+  MapInfoWindow,
+  MapMarker,
+} from '@angular/google-maps';
+import { VehicleDataService } from '../../core/services/vehicle-data.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-map',
-    standalone: true,
-    imports: [],
-    templateUrl: './map.component.html',
-    styleUrl: './map.component.scss'
+  selector: 'app-map',
+  standalone: true,
+  imports: [GoogleMapsModule, CommonModule, MatSnackBarModule],
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss'],
 })
-export class MapComponent { 
+export class MapComponent implements OnInit {
+  @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
+  private vehicleService = inject(VehicleDataService);
+  private snackBar = inject(MatSnackBar);
 
-    stores = [
-    { name: 'Pg Prime - João Pessoa/PB', lat: -7.1150, lng: -34.8631 },
-    { name: 'Pg Prime - Natal/RN', lat: -5.8260, lng: -35.2077 },
-    { name: 'Rota Premium - Recife/PE', lat: -8.0642, lng: -34.8941 },
-    { name: 'Gama - Maceió/AL', lat: -9.6489, lng: -35.7089 },
-    { name: 'Stark - Aracajú/SE', lat: -10.9472, lng: -37.0731 },
-    { name: 'GNC Suecia - Fortaleza/CE', lat: -3.7436, lng: -38.5126 },
-    { name: 'GNC Suécia - Salvador/BA', lat: -12.9131, lng: -38.4087 },
-    { name: 'Lagom - Teresina/PI', lat: -5.0919, lng: -42.8034 },
-    { name: 'Vitória - Oficina', lat: -20.2887, lng: -40.3084 },
-    { name: 'Vitória - Show Room', lat: -20.2887, lng: -40.3084 },
-    { name: 'Original New Suécia - São Luis', lat: -2.5295, lng: -44.3028 },
-    { name: 'Euroville - Belo Horizonte', lat: -19.9549, lng: -43.9460 },
-    { name: 'Euroville - Juiz de Fora', lat: -21.7603, lng: -43.3500 },
-    { name: 'Gotland - Botafogo/RJ', lat: -22.9519, lng: -43.1860 },
-    { name: 'Gotland - Barra da Tijuca/RJ', lat: -23.0003, lng: -43.3658 },
-    { name: 'Belem', lat: -1.4558, lng: -48.4902 },
-    { name: 'Euroville - Palmas', lat: -10.2390, lng: -48.3243 },
-    { name: 'Champion - Brasília/DF', lat: -15.7989, lng: -47.8661 },
-    { name: 'Faberge - São José dos Campos/SP', lat: -23.2237, lng: -45.9009 },
-    { name: 'Faberge - Mogi das Cruzes/SP', lat: -23.5203, lng: -46.1855 },
-    { name: 'Baltic - Santos', lat: -23.9540, lng: -46.3346 },
-    { name: 'Toriba - Santo André/SP', lat: -23.6639, lng: -46.5388 },
-    { name: 'Granstad - São Paulo/SP', lat: -23.5540, lng: -46.5726 },
-    { name: 'Thor - Uberlândia/MG', lat: -18.9145, lng: -48.2754 },
-    { name: 'Granstad - Ricardo Jafet', lat: -23.6012, lng: -46.6165 },
-    { name: 'Autostar Sweden - Pacaembú', lat: -23.5307, lng: -46.6631 },
-    { name: 'Intercar - Jardim Europa/SP', lat: -23.5761, lng: -46.6787 },
-    { name: 'Intercar - Vila Olímpia/SP', lat: -23.5940, lng: -46.6853 },
-    { name: 'Andreta - Jundiaí/SP', lat: -23.1857, lng: -46.8978 },
-    { name: 'Baltic - Vila Leopoldina', lat: -23.5269, lng: -46.7327 },
-    { name: 'Autostar Sweden - Santo Amaro', lat: -23.6326, lng: -46.7053 },
-    { name: 'Intercar - Campinas/SP', lat: -22.9028, lng: -47.0608 },
-    { name: 'Baltic - Alphaville/SP', lat: -23.5057, lng: -46.8799 },
-    { name: 'Thor - Ribeirão Preto/SP', lat: -21.1699, lng: -47.8103 },
-    { name: 'Champion - Goiânia/GO', lat: -16.6799, lng: -49.2550 },
-    { name: 'MAGGI - PIRACICABA', lat: -22.7253, lng: -47.6491 },
-    { name: 'Maggi - Sorocaba/SP', lat: -23.5004, lng: -47.4526 },
-    { name: 'Thor - São José do Rio Preto/SP', lat: -20.8200, lng: -49.3794 },
-    { name: 'Servopa - Curitiba/PR', lat: -25.4334, lng: -49.2925 },
-    { name: 'Dimas - Balneário Camboriú/SC', lat: -26.9935, lng: -48.6352 },
-    { name: 'Dimas - Florianópolis/SC', lat: -27.5845, lng: -48.5216 },
-    { name: 'Dimas - Blumenau/SC', lat: -26.9156, lng: -49.0707 },
-    { name: 'Escandinávia - Pres Prudente', lat: -22.1200, lng: -51.3958 },
-    { name: 'Escandinávia - Londrina/PR', lat: -23.3045, lng: -51.1696 },
-    { name: 'Escandinávia - Maringá/PR', lat: -23.4200, lng: -51.9333 },
-    { name: 'Estocolmo - Sinop', lat: -11.8606, lng: -55.5091 },
-    { name: 'Iesa - Caxias do Sul/RS', lat: -29.1629, lng: -51.1794 },
-    { name: 'Enzo - Campo Grande/MS', lat: -20.4686, lng: -54.6222 },
-    { name: 'Iesa - Porto Alegre/RS', lat: -30.0586, lng: -51.2301 },
-    { name: 'Servopa - Cascavel/PR', lat: -24.9578, lng: -53.4592 },
-    { name: 'Estocolmo - Cuiabá/MT', lat: -15.6014, lng: -56.0979 },
-    { name: 'Iesa - Passo Fundo/RS', lat: -28.2627, lng: -52.4098 },
-    { name: 'Enzo - Dourados/MS', lat: -22.2231, lng: -54.8120 },
-    { name: 'Gb Amazon - Manaus/AM', lat: -3.1072, lng: -60.0261 },
-  ];
+  selectedStore: (typeof this.stores)[0] | null = null;
+  center = { lat: -14.235, lng: -51.9253 };
+  zoom = 0;
+  google: typeof google = google;
+  stores: any[] = [];
 
+  currentPosition: google.maps.LatLngLiteral | null = null;
+
+  directionsRenderer = new google.maps.DirectionsRenderer();
+  directionsService = new google.maps.DirectionsService();
+
+  ngOnInit() {
+    this.getStores();
+    this.getUserLocation();
+  }
+
+  getStores(): void {
+    this.vehicleService.getStores().subscribe({
+      next: (data) => {
+        this.stores = data ?? [];
+      },
+      error: (error) => {
+        this.stores = [];
+        this.showMessage('Failed to load stores. Please try again later.');
+        console.error(error);
+      },
+    });
+  }
+
+  getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.currentPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          this.center = this.currentPosition;
+          this.zoom = 7;
+        },
+        (error) => {
+          this.showMessage('Unable to get your location.');
+          console.error(error);
+        }
+      );
+    } else {
+      this.showMessage('Geolocation is not supported by your browser.');
+    }
+  }
+
+  openInfo(store: (typeof this.stores)[0], marker: MapMarker) {
+    this.selectedStore = store;
+    this.infoWindow.open(marker);
+  }
+
+  closeInfo() {
+    this.infoWindow.close();
+  }
+
+  onMarkerClick(store: { lat: number; lng: number }) {
+    if (!this.currentPosition) {
+      this.showMessage('Unable to get your current location.');
+      return;
+    }
+
+    const request: google.maps.DirectionsRequest = {
+      origin: this.currentPosition,
+      destination: { lat: store.lat, lng: store.lng },
+      travelMode: google.maps.TravelMode.DRIVING,
+    };
+
+    this.directionsService.route(request, (result, status) => {
+      if (status === 'OK' && result) {
+        this.directionsRenderer.setDirections(result);
+      } else {
+        this.showMessage(`Unable to draw route: ${status}`);
+      }
+    });
+  }
+
+  mapReady(event: google.maps.Map | Event) {
+    const map = event as google.maps.Map;
+    this.directionsRenderer.setMap(map);
+  }
+
+  private showMessage(message: string, action = 'Close', duration = 4000) {
+    this.snackBar.open(message, action, {
+      duration,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    });
+  }
 }

@@ -8,7 +8,7 @@ import { Bus, Car, Launches, News, Truck } from './models/vehicle.model';
 })
 export class VehicleDataService {
   private baseUrl = 'assets/data/vehicles.json';
-
+  private storesUrl = 'assets/data/stores.json';
   private http = inject(HttpClient);
 
   getAllVehicles(): Observable<{
@@ -46,5 +46,9 @@ export class VehicleDataService {
     return this.http
       .get<{ recentNews: News[] }>(this.baseUrl)
       .pipe(map((data) => data.recentNews));
+  }
+
+  getStores(): Observable<any> {
+    return this.http.get<any>(this.storesUrl);
   }
 }
