@@ -4,11 +4,11 @@ import { VehicleDataService } from '../../../core/services/vehicle-data.service'
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-truck-detail',
-    standalone: true,
-    imports: [CommonModule],
-    templateUrl: './truck-detail.component.html',
-    styleUrl: './truck-detail.component.scss'
+  selector: 'app-truck-detail',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './truck-detail.component.html',
+  styleUrl: './truck-detail.component.scss',
 })
 export class TruckDetailComponent {
   private vehicleService = inject(VehicleDataService);
@@ -24,5 +24,9 @@ export class TruckDetailComponent {
         this.trucks = [];
       },
     });
+  }
+
+  toggleFavorite(truck: Truck): void {
+    truck.favorite = !truck.favorite;
   }
 }

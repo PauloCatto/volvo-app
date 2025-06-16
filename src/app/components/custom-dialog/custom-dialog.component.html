@@ -1,0 +1,10 @@
+<div class="dialog-header">
+  <h2>{{ data.title || "Information" }}</h2>
+  <button mat-icon-button (click)="close()" class="close">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="dialog-content">
+  <p>{{ data.message }}</p>
+</div>

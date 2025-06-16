@@ -5,56 +5,72 @@
       "modelName": "XC90 Recharge",
       "bodyType": "suv",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/xc90_recharge.jpg"
+      "imageUrl": "assets/images/cars/xc90_recharge.jpg",
+      "details": "The XC90 Recharge is a plug-in hybrid SUV with advanced safety features and premium comfort.",
+      "favorite": false
     },
     {
       "id": "xc60-recharge",
       "modelName": "XC60 Recharge",
       "bodyType": "suv",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/xc60_recharge.jpg"
+      "imageUrl": "assets/images/cars/xc60_recharge.jpg",
+      "details": "The XC60 Recharge offers a perfect balance of performance and sustainability with its hybrid engine.",
+      "favorite": false
     },
     {
       "id": "xc40-recharge",
       "modelName": "XC40 Recharge",
       "bodyType": "suv",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/xc40_recharge.jpg"
+      "imageUrl": "assets/images/cars/xc40_recharge.jpg",
+      "details": "The XC40 Recharge is a compact luxury SUV with cutting-edge electric and hybrid technology.",
+      "favorite": false
     },
     {
       "id": "xc40-bev",
       "modelName": "XC40 Recharge",
       "bodyType": "suv",
       "modelType": "pure electric",
-      "imageUrl": "assets/images/cars/xc40_bev.jpg"
+      "imageUrl": "assets/images/cars/xc40_bev.jpg",
+      "details": "The XC40 Recharge BEV is a fully electric compact SUV designed for zero emissions and high performance.",
+      "favorite": false
     },
     {
       "id": "v90-recharge",
       "modelName": "V90 Recharge",
       "bodyType": "estate",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/v90_recharge.jpg"
+      "imageUrl": "assets/images/cars/v90_recharge.jpg",
+      "details": "The V90 Recharge estate combines elegance and hybrid efficiency for a premium driving experience.",
+      "favorite": false
     },
     {
       "id": "v60-recharge",
       "modelName": "V60 Recharge",
       "bodyType": "estate",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/v60_recharge.jpg"
+      "imageUrl": "assets/images/cars/v60_recharge.jpg",
+      "details": "The V60 Recharge is a stylish estate car offering eco-friendly driving with a plug-in hybrid powertrain.",
+      "favorite": false
     },
     {
       "id": "s90-recharge",
       "modelName": "S90 Recharge",
       "bodyType": "sedan",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/s90_recharge.jpg"
+      "imageUrl": "assets/images/cars/s90_recharge.jpg",
+      "details": "The S90 Recharge luxury sedan delivers a powerful plug-in hybrid system with sophisticated design.",
+      "favorite": false
     },
     {
       "id": "s60-recharge",
       "modelName": "S60 Recharge",
       "bodyType": "sedan",
       "modelType": "plug-in hybrid",
-      "imageUrl": "assets/images/cars/s60_recharge.jpg"
+      "imageUrl": "assets/images/cars/s60_recharge.jpg",
+      "details": "The S60 Recharge offers sporty performance combined with plug-in hybrid efficiency.",
+      "favorite": false
     }
   ],
   "trucks": [
@@ -64,7 +80,9 @@
       "type": "long haul",
       "engineType": "diesel",
       "payload": "25 tons",
-      "imageUrl": "assets/images/trucks/Volvo-FH16.jpg"
+      "imageUrl": "assets/images/trucks/Volvo-FH16.jpg",
+      "details": "The Volvo FH16 is a powerful long-haul truck designed for heavy-duty transport and maximum efficiency.",
+      "favorite": false
     },
     {
       "id": "fm-electric",
@@ -72,7 +90,9 @@
       "type": "distribution",
       "engineType": "electric",
       "payload": "16 tons",
-      "imageUrl": "assets/images/trucks/Volvo-FM-Electric.jpg"
+      "imageUrl": "assets/images/trucks/Volvo-FM-Electric.jpg",
+      "details": "The Volvo FM Electric is an eco-friendly distribution truck with zero emissions and excellent urban performance.",
+      "favorite": false
     },
     {
       "id": "fl-electric",
@@ -80,7 +100,9 @@
       "type": "urban",
       "engineType": "electric",
       "payload": "12 tons",
-      "imageUrl": "assets/images/trucks/Volvo-FL-Electric.jpg"
+      "imageUrl": "assets/images/trucks/Volvo-FL-Electric.jpg",
+      "details": "The Volvo FL Electric is a versatile urban truck designed for quiet, zero-emission city deliveries.",
+      "favorite": false
     },
     {
       "id": "vnl",
@@ -88,7 +110,9 @@
       "type": "north america long haul",
       "engineType": "diesel",
       "payload": "28 tons",
-      "imageUrl": "assets/images/trucks/Volvo-VNL.jpg"
+      "imageUrl": "assets/images/trucks/Volvo-VNL.jpg",
+      "details": "The Volvo VNL is a heavy-duty long-haul truck built for North American highways with superior comfort.",
+      "favorite": false
     },
     {
       "id": "vnr",
@@ -96,7 +120,9 @@
       "type": "north america regional",
       "engineType": "diesel",
       "payload": "22 tons",
-      "imageUrl": "assets/images/trucks/Volvo-VNR.jpg"
+      "imageUrl": "assets/images/trucks/Volvo-VNR.jpg",
+      "details": "The Volvo VNR is designed for regional haul with enhanced fuel efficiency and driver-focused features.",
+      "favorite": false
     }
   ],
   "bus": [
@@ -106,7 +132,9 @@
       "type": "urban electric bus",
       "capacity": "80 passengers",
       "engineType": "electric",
-      "imageUrl": "assets/images/bus/Volvo-7900-Electric.jpg"
+      "imageUrl": "assets/images/bus/Volvo-7900-Electric.jpg",
+      "details": "The Volvo 7900 Electric is a modern urban electric bus designed for zero-emission city transport with high passenger capacity.",
+      "favorite": false
     },
     {
       "id": "8900-electric",
@@ -114,7 +142,9 @@
       "type": "intercity electric bus",
       "capacity": "90 passengers",
       "engineType": "electric",
-      "imageUrl": "assets/images/bus/Volvo-8900-Electric.jpg"
+      "imageUrl": "assets/images/bus/Volvo-8900-Electric.jpg",
+      "details": "The Volvo 8900 Electric is an efficient intercity electric bus combining comfort and sustainable transport.",
+      "favorite": false
     },
     {
       "id": "9600",
@@ -122,7 +152,9 @@
       "type": "intercity bus",
       "capacity": "50 passengers",
       "engineType": "diesel",
-      "imageUrl": "assets/images/bus/Volvo-9600.jpg"
+      "imageUrl": "assets/images/bus/Volvo-9600.jpg",
+      "details": "The Volvo 9600 is a reliable diesel-powered intercity bus offering comfort and performance for long-distance travel.",
+      "favorite": false
     },
     {
       "id": "bzr",
@@ -130,7 +162,9 @@
       "type": "electric articulated bus",
       "capacity": "110 passengers",
       "engineType": "electric",
-      "imageUrl": "assets/images/bus/Volvo-BZR.jpg"
+      "imageUrl": "assets/images/bus/Volvo-BZR.jpg",
+      "details": "The Volvo BZR is a high-capacity electric articulated bus designed for busy urban routes with zero emissions.",
+      "favorite": false
     },
     {
       "id": "gran-arctic-300",
@@ -138,7 +172,9 @@
       "type": "mega bus",
       "capacity": "300 passengers",
       "engineType": "diesel",
-      "imageUrl": "assets/images/bus/Gran-Arctic-300.jpg"
+      "imageUrl": "assets/images/bus/Gran-Arctic-300.jpg",
+      "details": "The Gran Arctic 300 is a mega bus built for maximum passenger capacity and long-distance diesel performance.",
+      "favorite": false
     }
   ],
   "launches": [

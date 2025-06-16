@@ -16,6 +16,13 @@
       <div class="truck-header">
         <span class="truck-type">{{ truck.type }}</span>
         <span class="truck-badge">{{ truck.engineType }}</span>
+        <button
+          class="material-icons favorite-icon"
+          [ngClass]="{ active: truck.favorite }"
+          (click)="toggleFavorite(truck)"
+        >
+          {{ truck.favorite ? "favorite" : "favorite_border" }}
+        </button>
       </div>
       <h3 class="truck-title">{{ truck.modelName }}</h3>
       <div class="truck-payload">Payload: {{ truck.payload }}</div>

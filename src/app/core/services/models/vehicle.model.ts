@@ -4,6 +4,7 @@ export interface Car {
   bodyType: string;
   modelType: string;
   imageUrl: string;
+  favorite: boolean;
 }
 
 export interface Truck {
@@ -13,6 +14,7 @@ export interface Truck {
   engineType: string;
   payload: string;
   imageUrl: string;
+  favorite: boolean;
 }
 
 export interface Bus {
@@ -22,6 +24,7 @@ export interface Bus {
   capacity: string;
   engineType: string;
   imageUrl: string;
+  favorite: boolean;
 }
 
 export interface Launches {

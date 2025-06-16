@@ -55,6 +55,7 @@ body {
 }
 
 .icon-btn {
+  gap: 6px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -72,6 +73,14 @@ body {
 .icon-btn:hover {
   background-color: #e0e0e0;
   color: #000;
+}
+
+.isDarkMode {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
 }
 
 .material-icons {

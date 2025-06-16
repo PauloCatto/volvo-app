@@ -16,6 +16,13 @@
       <div class="bus-header">
         <span class="bus-type">{{ bus.type }}</span>
         <span class="bus-badge">{{ bus.engineType }}</span>
+        <button
+          class="material-icons favorite-icon"
+          [ngClass]="{ active: bus.favorite }"
+          (click)="toggleFavorite(bus)"
+        >
+          {{ bus.favorite ? "favorite" : "favorite_border" }}
+        </button>
       </div>
       <h3 class="bus-title">{{ bus.modelName }}</h3>
       <div class="bus-capacity">Capacity: {{ bus.capacity }}</div>

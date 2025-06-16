@@ -25,4 +25,8 @@ export class BusDetailComponent {
       },
     });
   }
+
+  toggleFavorite(bus: Bus): void {
+    bus.favorite = !bus.favorite;
+  }
 }
