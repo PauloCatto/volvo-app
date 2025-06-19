@@ -7,5 +7,10 @@
       "config": { "distDir": "dist/volvo-cars-app/browser" }
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
