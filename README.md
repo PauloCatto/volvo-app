@@ -1,27 +1,28 @@
-# VolvoCarsApp
+# Volvo Cars App 🚗
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+Aplicação em desenvolvimento para prática baseada no desafio do repositório oficial da Volvo Cars.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Sobre o projeto
 
-## Code scaffolding
+Este projeto foi criado para praticar e explorar o desenvolvimento frontend utilizando as informações e dados disponibilizados pelo repositório oficial da Volvo Cars:  
+👉 [volvo-cars/god-frontend-code-test](https://github.com/volvo-cars/god-frontend-code-test)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A ideia é implementar novas funcionalidades, melhorar a estrutura e adicionar novas experiências à aplicação original como forma de aprendizado e desafio pessoal.
 
-## Build
+Atualmente o desenvolvimento está em andamento 🚧. Algumas funcionalidades ainda estão incompletas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Em breve serão incluídos:**
 
-## Running unit tests
+- Responsividade para mobile 📱
+- Testes unitários para toda a aplicação ✅
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## Demonstração
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Acesse a versão atual hospedada na Vercel:  
+🔗 [https://volvo-app-2zyy.vercel.app/](https://volvo-app-2zyy.vercel.app/)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+> ⚠️ Projeto ainda em desenvolvimento. Algumas partes podem sofrer alterações.
