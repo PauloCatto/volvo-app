@@ -13,7 +13,7 @@
     (mapClick)="closeInfo()"
     (mapInitialized)="mapReady($event)"
   >
-    <!-- Marker da Localização Atual (Usuário) -->
+    <!-- Current User Location Marker -->
     <map-marker
       *ngIf="currentPosition"
       [position]="currentPosition"
@@ -28,7 +28,7 @@
     >
     </map-marker>
 
-    <!-- Markers das Lojas -->
+    <!-- Store Location Markers -->
     <map-marker
       *ngFor="let store of stores"
       [position]="{ lat: store.lat, lng: store.lng }"
