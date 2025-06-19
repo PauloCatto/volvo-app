@@ -14,6 +14,10 @@ export class VehicleDataService {
   private favoriteItemsSubject = new BehaviorSubject<(Car | Truck | Bus)[]>([]);
   favoriteItems$ = this.favoriteItemsSubject.asObservable();
 
+  constructor() {
+    this.loadFavorites();
+  }
+
   getAllVehicles(): Observable<{
     cars: Car[];
     trucks: Truck[];
@@ -55,16 +59,28 @@ export class VehicleDataService {
     return this.http.get<any>(this.storesUrl);
   }
 
+  loadFavorites() {
+    const data = localStorage.getItem('favoriteVehicles');
+    if (data) {
+      this.favoriteItemsSubject.next(JSON.parse(data));
+    }
+  }
+
   updateFavorites(item: Car | Truck | Bus): void {
     const currentFavorites = this.favoriteItemsSubject.value;
     const exists = currentFavorites.find((fav) => fav.id === item.id);
 
+    let updatedFavorites;
+
     if (item.favorite && !exists) {
-      this.favoriteItemsSubject.next([...currentFavorites, item]);
+      updatedFavorites = [...currentFavorites, item];
     } else if (!item.favorite && exists) {
-      this.favoriteItemsSubject.next(
-        currentFavorites.filter((fav) => fav.id !== item.id)
-      );
+      updatedFavorites = currentFavorites.filter((fav) => fav.id !== item.id);
+    } else {
+      return;
     }
+
+    this.favoriteItemsSubject.next(updatedFavorites);
+    localStorage.setItem('favoriteVehicles', JSON.stringify(updatedFavorites));
   }
 }
