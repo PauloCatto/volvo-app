@@ -4,7 +4,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/volvo-app" }
+      "config": { "distDir": "dist/volvo-cars-app" }
     }
   ],
   "routes": [
