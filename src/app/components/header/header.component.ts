@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,18 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  isDarkMode = false;
-  isFavorited = false;
+  private themeService = inject(ThemeService);
+  isFavorited!: boolean;
+  isDarkMode!: boolean;
 
-  toggleDarkMode(): void {
-    this.isDarkMode = !this.isDarkMode;
-    if (this.isDarkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
+  ngOnInit(): void {
+  this.themeService.isDarkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
+    });
+  }
+
+   toggleDarkMode(): void {
+    this.themeService.toggleDarkMode();
   }
 
   toggleFavorites(): void {

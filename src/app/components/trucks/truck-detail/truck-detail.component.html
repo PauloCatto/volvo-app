@@ -1,6 +1,6 @@
 <section class="trucks-intro">
-  <h2>Discover Our Range of Trucks</h2>
-  <p>
+  <h2 [ngClass]="{ 'white-text': isDarkMode }">Discover Our Range of Trucks</h2>
+  <p [ngClass]="{ 'white-text': isDarkMode }">
     Built for performance, endurance, and efficiency. Explore our lineup of
     Volvo trucks designed to handle the toughest journeys with power and
     reliability.
@@ -24,8 +24,12 @@
           {{ truck.favorite ? "favorite" : "favorite_border" }}
         </button>
       </div>
-      <h3 class="truck-title">{{ truck.modelName }}</h3>
-      <div class="truck-payload">Payload: {{ truck.payload }}</div>
+      <h3 class="truck-title" [ngClass]="{ 'white-text': isDarkMode }">
+        {{ truck.modelName }}
+      </h3>
+      <div class="truck-payload" [ngClass]="{ 'white-text': isDarkMode }">
+        Payload: {{ truck.payload }}
+      </div>
       <button class="btn">View Details</button>
     </div>
   </div>

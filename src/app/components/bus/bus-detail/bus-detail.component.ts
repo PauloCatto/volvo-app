@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Bus } from '../../../core/services/models/vehicle.model';
 import { VehicleDataService } from '../../../core/services/vehicle-data.service';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-bus-detail',
@@ -12,9 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class BusDetailComponent {
   private vehicleService = inject(VehicleDataService);
+  private themeService = inject(ThemeService);
+  isDarkMode!: boolean;
   buses: Bus[] = [];
 
   ngOnInit(): void {
+    this.getBuses();
+    this.listenToThemeChanges();
+  }
+
+  getBuses(): void {
     this.vehicleService.getBuses().subscribe({
       next: (data) => {
         this.buses = data ?? [];
@@ -23,6 +31,12 @@ export class BusDetailComponent {
         this.buses = [];
         console.error(error);
       },
+    });
+  }
+
+  listenToThemeChanges(): void {
+    this.themeService.isDarkMode$.subscribe((mode) => {
+      this.isDarkMode = mode;
     });
   }
 

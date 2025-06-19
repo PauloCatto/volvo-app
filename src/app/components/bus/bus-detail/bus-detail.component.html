@@ -1,6 +1,6 @@
 <section class="buses-intro">
-  <h2>Explore Our Bus Lineup</h2>
-  <p>
+  <h2 [ngClass]="{ 'white-text': isDarkMode }">Explore Our Bus Lineup</h2>
+  <p [ngClass]="{ 'white-text': isDarkMode }">
     Discover Volvo buses built for comfort, efficiency, and capacity. From urban
     electrics to long-distance intercity models, each bus is designed for a
     smooth and sustainable ride.
@@ -24,8 +24,12 @@
           {{ bus.favorite ? "favorite" : "favorite_border" }}
         </button>
       </div>
-      <h3 class="bus-title">{{ bus.modelName }}</h3>
-      <div class="bus-capacity">Capacity: {{ bus.capacity }}</div>
+      <h3 class="bus-title" [ngClass]="{ 'white-text': isDarkMode }">
+        {{ bus.modelName }}
+      </h3>
+      <div class="bus-capacity" [ngClass]="{ 'white-text': isDarkMode }">
+        Capacity: {{ bus.capacity }}
+      </div>
       <button class="btn">View Details</button>
     </div>
   </div>

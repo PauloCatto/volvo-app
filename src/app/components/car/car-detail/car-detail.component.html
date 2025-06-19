@@ -1,6 +1,6 @@
 <div class="cars-intro">
-  <h2>Discover Our Range of Cars</h2>
-  <p>
+  <h2 [ngClass]="{ 'white-text': isDarkMode }">Discover Our Range of Cars</h2>
+  <p [ngClass]="{ 'white-text': isDarkMode }">
     Experience the perfect blend of innovation, elegance, and safety with
     Volvo's vehicle lineup. From powerful SUVs to sleek electric models, every
     car is designed with Scandinavian precision to offer you a unique and
@@ -28,7 +28,7 @@
           </span>
         </button>
       </div>
-      <h3 class="car-title">{{ car.modelName }}</h3>
+      <h3 class="car-title" [ngClass]="{ 'white-text': isDarkMode }">{{ car.modelName }}</h3>
       <button class="btn">View Details</button>
     </div>
   </div>
