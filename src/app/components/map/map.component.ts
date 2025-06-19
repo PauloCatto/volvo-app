@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
   selectedStore: (typeof this.stores)[0] | null = null;
   center = { lat: -14.235, lng: -51.9253 };
   zoom = 0;
-  google: typeof google = google;
+  google: typeof google = (window as any).google;
   stores: any[] = [];
 
   currentPosition: google.maps.LatLngLiteral | null = null;

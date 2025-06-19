@@ -9,5 +9,8 @@
       }
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "routes": [{ "src": "/(.*)", "dest": "/" }],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/volvo-cars-app/browser",
+  "installCommand": "npm install"
 }
