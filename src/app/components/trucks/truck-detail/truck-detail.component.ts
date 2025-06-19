@@ -3,6 +3,8 @@ import { Truck } from '../../../core/services/models/vehicle.model';
 import { VehicleDataService } from '../../../core/services/vehicle-data.service';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../../core/services/theme.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomDialogComponent } from '../../custom-dialog/custom-dialog.component';
 
 @Component({
   selector: 'app-truck-detail',
@@ -14,6 +16,8 @@ import { ThemeService } from '../../../core/services/theme.service';
 export class TruckDetailComponent {
   private vehicleService = inject(VehicleDataService);
   private themeService = inject(ThemeService);
+  private dialog = inject(MatDialog);
+
   isDarkMode!: boolean;
   trucks: Truck[] = [];
 
@@ -42,5 +46,15 @@ export class TruckDetailComponent {
 
   toggleFavorite(truck: Truck): void {
     truck.favorite = !truck.favorite;
+  }
+
+  openDetailsDialog(truck: Truck): void {
+    this.dialog.open(CustomDialogComponent, {
+      width: '500px',
+      data: {
+        title: truck?.modelName,
+        message: truck?.details,
+      },
+    });
   }
 }

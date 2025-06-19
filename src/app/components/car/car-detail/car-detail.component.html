@@ -28,8 +28,10 @@
           </span>
         </button>
       </div>
-      <h3 class="car-title" [ngClass]="{ 'white-text': isDarkMode }">{{ car.modelName }}</h3>
-      <button class="btn">View Details</button>
+      <h3 class="car-title" [ngClass]="{ 'white-text': isDarkMode }">
+        {{ car.modelName }}
+      </h3>
+      <button class="btn" (click)="openDetailsDialog(car)">View Details</button>
     </div>
   </div>
 </div>

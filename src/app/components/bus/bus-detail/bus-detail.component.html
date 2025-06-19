@@ -30,7 +30,7 @@
       <div class="bus-capacity" [ngClass]="{ 'white-text': isDarkMode }">
         Capacity: {{ bus.capacity }}
       </div>
-      <button class="btn">View Details</button>
+      <button class="btn" (click)="openDetailsDialog(bus)">View Details</button>
     </div>
   </div>
 </section>

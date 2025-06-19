@@ -30,7 +30,9 @@
       <div class="truck-payload" [ngClass]="{ 'white-text': isDarkMode }">
         Payload: {{ truck.payload }}
       </div>
-      <button class="btn">View Details</button>
+      <button class="btn" (click)="openDetailsDialog(truck)">
+        View Details
+      </button>
     </div>
   </div>
 </section>

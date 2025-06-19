@@ -5,9 +5,11 @@ export interface Car {
   modelType: string;
   imageUrl: string;
   favorite: boolean;
+  details: string;
 }
 
 export interface Truck {
+  details: string;
   id: string;
   modelName: string;
   type: string;
@@ -25,6 +27,7 @@ export interface Bus {
   engineType: string;
   imageUrl: string;
   favorite: boolean;
+  details: string;
 }
 
 export interface Launches {
