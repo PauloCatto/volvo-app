@@ -46,6 +46,7 @@ export class TruckDetailComponent {
 
   toggleFavorite(truck: Truck): void {
     truck.favorite = !truck.favorite;
+    this.vehicleService.updateFavorites(truck);
   }
 
   openDetailsDialog(truck: Truck): void {

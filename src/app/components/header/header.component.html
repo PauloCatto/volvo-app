@@ -23,8 +23,10 @@
       <button
         class="icon-btn"
         aria-label="Favorites"
-        (click)="toggleFavorites()"
-        title="Favorites"
+        routerLink="/favorites"
+        [disabled]="!hasFavorites"
+        [ngClass]="{ active: hasFavorites }"
+        title="{{ hasFavorites ? 'Favorites' : 'No favorites yet' }}"
       >
         <span class="material-icons">favorite_border</span>
         <span class="isDarkMode">Favorites</span>

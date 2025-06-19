@@ -1,0 +1,26 @@
+<section class="favorites-intro">
+  <h2 [ngClass]="{ 'white-text': isDarkMode }">Your Favorite Vehicles</h2>
+  <p [ngClass]="{ 'white-text': isDarkMode }">All vehicles you marked as favorite appear here.</p>
+</section>
+
+<section class="favorites-container">
+  <div *ngIf="(favorites$ | async)?.length">
+    <div class="favorite-card" *ngFor="let item of favorites$ | async">
+      <div class="favorite-image">
+        <img [src]="item.imageUrl" [alt]="item.modelName" />
+      </div>
+      <div class="favorite-content">
+        <h3>{{ item.modelName }}</h3>
+        <p>{{ getItemDescription(item) }}</p>
+
+        <button
+          class="material-icons favorite-btn"
+          (click)="toggleFavorite(item)"
+          aria-label="Toggle favorite"
+        >
+          {{ item.favorite ? "favorite" : "favorite_border" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
