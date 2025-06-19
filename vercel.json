@@ -1,6 +1,13 @@
 {
   "version": 2,
-  "buildCommand": "ng build --prod",
-  "outputDirectory": "dist/volvo-cars-app/browser",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/volvo-cars-app/browser"
+      }
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
