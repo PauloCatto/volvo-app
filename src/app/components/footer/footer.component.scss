@@ -32,3 +32,16 @@
   background-color: #d3d3d3;
   color: black;
 }
+
+@media (max-width: 480px) {
+  .footer-toolbar {
+    justify-content: center;
+    gap: 6px;
+    padding: 0 12px;
+  }
+
+  .footer-toolbar button {
+    flex: 1 1 auto;
+    min-width: fit-content;
+  }
+}
