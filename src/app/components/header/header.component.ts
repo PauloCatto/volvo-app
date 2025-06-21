@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeService } from '../../core/services/theme.service';
 import { VehicleDataService } from '../../core/services/vehicle-data.service';
@@ -11,13 +11,14 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private themeService = inject(ThemeService);
   private vehicleService = inject(VehicleDataService);
 
   hasFavorites!: boolean;
   isFavorited!: boolean;
   isDarkMode!: boolean;
+  isMenuOpen!: boolean;
 
   ngOnInit(): void {
     this.listenToThemeChanges();
@@ -42,5 +43,13 @@ export class HeaderComponent {
 
   toggleFavorites(): void {
     this.isFavorited = !this.isFavorited;
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
   }
 }

@@ -37,7 +37,7 @@ body {
   color: #333;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav a:hover,
@@ -99,19 +99,54 @@ body {
   line-height: 1;
 }
 
-@media (max-width: 768px) {
+.menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  font-size: 28px;
+  color: #333;
+}
+
+@media (max-width: 1000px) {
+  .menu-toggle {
+    display: block;
+  }
+
   .nav {
     position: fixed;
-    top: 0;
+    top: 66px;
     right: -100%;
-    height: 100vh;
-    width: 250px;
-    background-color: #ffffff;
+    height: 50vh;
+    width: 220px;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
     flex-direction: column;
-    padding-top: 4rem;
+    padding-top: 3rem;
     gap: 1.5rem;
     box-shadow: -2px 0 5px #0000001a;
     transition: right 0.3s ease;
+    z-index: 2000;
+    display: flex;
+  }
+
+  .nav.light a,
+  .nav.light .material-icons,
+  .nav.light .isDarkMode {
+    color: #000 !important;
+  }
+
+  .nav.dark a,
+  .nav.dark .material-icons,
+  .nav.dark .isDarkMode {
+    color: #fff !important;
+  }
+
+  .nav a:hover,
+  .nav a.active,
+  .nav .icon-btn:hover:not(:disabled) {
+    border-bottom: 1px solid #000;
+    color: #000;
   }
 
   .nav.active {
