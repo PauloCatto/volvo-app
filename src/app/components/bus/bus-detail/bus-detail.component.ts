@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Bus } from '../../../core/services/models/vehicle.model';
 import { VehicleDataService } from '../../../core/services/vehicle-data.service';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,7 @@ import { CustomDialogComponent } from '../../custom-dialog/custom-dialog.compone
   templateUrl: './bus-detail.component.html',
   styleUrl: './bus-detail.component.scss',
 })
-export class BusDetailComponent {
+export class BusDetailComponent implements OnInit{
   private vehicleService = inject(VehicleDataService);
   private themeService = inject(ThemeService);
   private dialog = inject(MatDialog);
