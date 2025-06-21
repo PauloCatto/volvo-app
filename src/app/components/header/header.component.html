@@ -43,18 +43,17 @@
         <span class="isDarkMode">{{ isDarkMode ? "Dark" : "Light" }}</span>
       </button>
 
-      <button
+      <a
         class="icon-btn"
         aria-label="Favorites"
         routerLink="/favorites"
-        [disabled]="!hasFavorites"
-        [ngClass]="{ active: hasFavorites }"
+        routerLinkActive="active"
+        [class.disabled]="!hasFavorites"
         title="{{ hasFavorites ? 'Favorites' : 'No favorites yet' }}"
-        (click)="closeMenu()"
       >
         <span class="material-icons">favorite_border</span>
         <span class="isDarkMode">Favorites</span>
-      </button>
+      </a>
     </nav>
   </div>
 </header>

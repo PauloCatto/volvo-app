@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   selector: 'app-custom-dialog',
   imports: [MatIconModule],
   templateUrl: './custom-dialog.component.html',
-  styleUrl: './custom-dialog.component.scss',
+  styleUrls: ['./custom-dialog.component.scss'],
 })
 export class CustomDialogComponent {
   dialogRef = inject(MatDialogRef<CustomDialogComponent>);

@@ -18,17 +18,75 @@
 }
 
 .map-container {
-  max-width: 900px;   /* Ajuste a largura como quiser: 700px, 900px, etc */
-  margin: 2rem auto;  /* Centraliza horizontalmente */
+  max-width: 900px;
+  margin: 2rem auto;
   border-radius: 12px;
-  overflow: hidden;   /* Para arredondar o mapa junto com o container */
+  overflow: hidden;
   box-shadow: 0 8px 20px #0000001a;
 }
-
 
 @media (max-width: 768px) {
   .text-fields {
     padding: 1rem 1.2rem;
     font-size: 1rem;
+  }
+}
+
+.location-message {
+  max-width: 720px;
+  margin: 1.5rem auto 2rem auto;
+  padding: 1rem 1.5rem;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  background-color: #e6f0ff;
+  color: #004a99;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+  user-select: none;
+
+  p {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .map-controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.6rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover,
+    &:focus {
+      background-color: #0056b3;
+      box-shadow: 0 0 8px rgba(0, 86, 179, 0.7);
+      outline: none;
+    }
+
+    &:active {
+      background-color: #004494;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    p {
+      font-size: 1rem;
+    }
+    button {
+      font-size: 0.95rem;
+      padding: 0.5rem 1.2rem;
+    }
   }
 }

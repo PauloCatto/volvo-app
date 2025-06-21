@@ -15,10 +15,10 @@ export class HeaderComponent implements OnInit {
   private themeService = inject(ThemeService);
   private vehicleService = inject(VehicleDataService);
 
-  hasFavorites!: boolean;
-  isFavorited!: boolean;
-  isDarkMode!: boolean;
-  isMenuOpen!: boolean;
+  hasFavorites: boolean = false;
+  isFavorited: boolean = false;
+  isDarkMode: boolean = false;
+  isMenuOpen: boolean = false;
 
   ngOnInit(): void {
     this.listenToThemeChanges();

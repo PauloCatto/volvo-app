@@ -1,43 +1,55 @@
-<p class="text-fields">
-  Here are all our Volvo dealership locations across Brazil. Browse the map,
-  explore each location, and find the dealership nearest to you for a
-  personalized Volvo experience.
-</p>
+<ng-container *ngIf="currentPosition; else noLocation">
+  <p class="text-fields">
+    Here are all our Volvo dealership locations across Brazil. Browse the map,
+    explore each location, and find the dealership nearest to you for a
+    personalized Volvo experience.
+  </p>
 
-<div class="map-container">
-  <google-map
-    height="400px"
-    width="100%"
-    [center]="center"
-    [zoom]="zoom"
-    (mapClick)="closeInfo()"
-    (mapInitialized)="mapReady($event)"
-  >
-    <!-- Current User Location Marker -->
-    <map-marker
-      *ngIf="currentPosition"
-      [position]="currentPosition"
-      [icon]="markerIcon"
-      title="Your Location"
+  <div class="map-container">
+    <google-map
+      height="400px"
+      width="100%"
+      [center]="center"
+      [zoom]="zoom"
+      (mapClick)="closeInfo()"
+      (mapInitialized)="mapReady($event)"
     >
-    </map-marker>
+      <!-- Current User Location Marker -->
+      <map-marker
+        [position]="currentPosition"
+        [icon]="markerIcon"
+        title="Your Location"
+      ></map-marker>
 
-    <!-- Store Location Markers -->
-    <map-marker
-      *ngFor="let store of stores"
-      [position]="{ lat: store.lat, lng: store.lng }"
-      [title]="store.name"
-      (mapClick)="openInfo(store, markerRef)"
-      #markerRef="mapMarker"
-    >
-    </map-marker>
+      <!-- Store Location Markers -->
+      <map-marker
+        *ngFor="let store of stores"
+        [position]="{ lat: store.lat, lng: store.lng }"
+        [title]="store.name"
+        (mapClick)="openInfo(store, markerRef)"
+        #markerRef="mapMarker"
+      ></map-marker>
 
-    <!-- Info Window -->
-    <map-info-window>
-      <div>
-        <h3>{{ selectedStore?.name }}</h3>
-        <button (click)="onMarkerClick(selectedStore!)">Trace Route</button>
-      </div>
-    </map-info-window>
-  </google-map>
-</div>
+      <!-- Info Window -->
+      <map-info-window>
+        <div>
+          <h3>{{ selectedStore?.name }}</h3>
+          <button (click)="onMarkerClick(selectedStore!)">Trace Route</button>
+        </div>
+      </map-info-window>
+    </google-map>
+  </div>
+</ng-container>
+
+<ng-template #noLocation>
+  <div class="location-message">
+    <p>
+      Please update your location to see the nearest options available to you.
+    </p>
+    <div class="map-controls">
+      <button (click)="updateUserLocation()" aria-label="Update My Location">
+        Update My Location
+      </button>
+    </div>
+  </div>
+</ng-template>
