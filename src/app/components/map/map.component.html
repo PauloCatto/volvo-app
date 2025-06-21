@@ -17,13 +17,7 @@
     <map-marker
       *ngIf="currentPosition"
       [position]="currentPosition"
-      [icon]="{
-        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-        scale: 8,
-        fillColor: 'blue',
-        fillOpacity: 1,
-        strokeWeight: 1
-      }"
+      [icon]="markerIcon"
       title="Your Location"
     >
     </map-marker>

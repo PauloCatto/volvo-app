@@ -23,15 +23,24 @@ export class MapComponent implements OnInit {
   selectedStore: (typeof this.stores)[0] | null = null;
   center = { lat: -14.235, lng: -51.9253 };
   zoom = 0;
-  google: typeof google = (window as any).google;
   stores: any[] = [];
-
   currentPosition: google.maps.LatLngLiteral | null = null;
 
-  directionsRenderer = new google.maps.DirectionsRenderer();
-  directionsService = new google.maps.DirectionsService();
+  directionsRenderer!: google.maps.DirectionsRenderer;
+  directionsService!: google.maps.DirectionsService;
+
+  markerIcon: google.maps.Symbol = {
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    scale: 8,
+    fillColor: 'blue',
+    fillOpacity: 1,
+    strokeWeight: 1,
+  };
 
   ngOnInit() {
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.directionsService = new google.maps.DirectionsService();
+
     this.getStores();
     this.getUserLocation();
   }
@@ -49,7 +58,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  getUserLocation() {
+  getUserLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -70,16 +79,16 @@ export class MapComponent implements OnInit {
     }
   }
 
-  openInfo(store: (typeof this.stores)[0], marker: MapMarker) {
+  openInfo(store: (typeof this.stores)[0], marker: MapMarker): void {
     this.selectedStore = store;
     this.infoWindow.open(marker);
   }
 
-  closeInfo() {
+  closeInfo(): void {
     this.infoWindow.close();
   }
 
-  onMarkerClick(store: { lat: number; lng: number }) {
+  onMarkerClick(store: { lat: number; lng: number }): void {
     if (!this.currentPosition) {
       this.showMessage('Unable to get your current location.');
       return;
@@ -100,12 +109,12 @@ export class MapComponent implements OnInit {
     });
   }
 
-  mapReady(event: google.maps.Map | Event) {
+  mapReady(event: google.maps.Map | Event): void {
     const map = event as google.maps.Map;
     this.directionsRenderer.setMap(map);
   }
 
-  private showMessage(message: string, action = 'Close', duration = 4000) {
+  showMessage(message: string, action = 'Close', duration = 4000): void {
     this.snackBar.open(message, action, {
       duration,
       horizontalPosition: 'right',
