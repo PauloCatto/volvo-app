@@ -153,3 +153,63 @@ body {
     right: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .intro-text {
+    padding: 1rem;
+    font-size: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .intro-text h2 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-shadow: none;
+  }
+
+  img {
+    height: 180px;
+  }
+
+  .logo img {
+    height: 20px;
+  }
+
+  .nav {
+    width: 160px;
+    height: 60vh;
+    padding-top: 2rem;
+
+    a,
+    .icon-btn {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .logo img {
+    height: 14px;
+  }
+}
