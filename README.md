@@ -17,6 +17,7 @@ Atualmente o desenvolvimento está em andamento 🚧. Algumas funcionalidades ai
 
 - Responsividade para mobile 📱
 - Testes unitários para toda a aplicação ✅
+- Melhorias na detecção de localização do usuário em produção 🚩
 
 ---
 
