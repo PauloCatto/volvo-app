@@ -50,6 +50,7 @@
         routerLinkActive="active"
         [class.disabled]="!hasFavorites"
         title="{{ hasFavorites ? 'Favorites' : 'No favorites yet' }}"
+        (click)="closeMenu()"
       >
         <span class="material-icons">favorite_border</span>
         <span class="isDarkMode">Favorites</span>
