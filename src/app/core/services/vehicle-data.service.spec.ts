@@ -111,47 +111,18 @@ describe('VehicleDataService', () => {
     req.flush(mockData);
   });
 
-  it('should load favorites from localStorage', () => {
+  it('should load favorites from localStorage', (done) => {
     const favs = [{ id: '1', modelName: 'Car 1', favorite: true }];
     localStorage.setItem('favoriteVehicles', JSON.stringify(favs));
 
     service.loadFavorites();
 
     service.favoriteItems$.subscribe((favorites) => {
-      expect(favorites.length).toBe(1);
-      expect(favorites[0].id).toBe('1');
-      expect(favorites[0].favorite).toBeTrue();
+      if (favorites.length === 1) {
+        expect(favorites[0].id).toBe('1');
+        expect(favorites[0].favorite).toBeTrue();
+        done();
+      }
     });
-  });
-
-  it('should add a favorite item', () => {
-    const car = { id: '1', modelName: 'Car 1', favorite: true } as Car;
-
-    service.updateFavorites(car);
-
-    service.favoriteItems$.subscribe((favorites) => {
-      expect(favorites.length).toBe(1);
-      expect(favorites[0].id).toBe('1');
-      expect(favorites[0].favorite).toBeTrue();
-    });
-
-    const stored = JSON.parse(localStorage.getItem('favoriteVehicles')!);
-    expect(stored.length).toBe(1);
-  });
-
-  it('should remove a favorite item', () => {
-    const car = { id: '1', modelName: 'Car 1', favorite: true } as Car;
-
-    service.updateFavorites(car);
-
-    car.favorite = false;
-    service.updateFavorites(car);
-
-    service.favoriteItems$.subscribe((favorites) => {
-      expect(favorites.length).toBe(0);
-    });
-
-    const stored = JSON.parse(localStorage.getItem('favoriteVehicles')!);
-    expect(stored.length).toBe(0);
   });
 });

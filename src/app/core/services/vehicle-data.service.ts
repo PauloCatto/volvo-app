@@ -59,23 +59,30 @@ export class VehicleDataService {
     return this.http.get<any>(this.storesUrl);
   }
 
-  loadFavorites() {
+  loadFavorites(): void {
     const data = localStorage.getItem('favoriteVehicles');
     if (data) {
-      this.favoriteItemsSubject.next(JSON.parse(data));
+      try {
+        const parsed = JSON.parse(data);
+        this.favoriteItemsSubject.next(Array.isArray(parsed) ? parsed : []);
+      } catch {
+        this.favoriteItemsSubject.next([]);
+      }
+    } else {
+      this.favoriteItemsSubject.next([]);
     }
   }
 
   updateFavorites(item: Car | Truck | Bus): void {
     const currentFavorites = this.favoriteItemsSubject.value;
-    const exists = currentFavorites.find((fav) => fav.id === item.id);
+    const existsIndex = currentFavorites.findIndex((fav) => fav.id === item.id);
 
-    let updatedFavorites;
+    let updatedFavorites: (Car | Truck | Bus)[] = [...currentFavorites];
 
-    if (item.favorite && !exists) {
-      updatedFavorites = [...currentFavorites, item];
-    } else if (!item.favorite && exists) {
-      updatedFavorites = currentFavorites.filter((fav) => fav.id !== item.id);
+    if (item.favorite && existsIndex === -1) {
+      updatedFavorites.push(item);
+    } else if (!item.favorite && existsIndex !== -1) {
+      updatedFavorites.splice(existsIndex, 1);
     } else {
       return;
     }
