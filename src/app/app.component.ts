@@ -9,11 +9,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ThemeService } from './core/services/theme.service';
 import { filter } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, RouterModule, HeaderComponent, FooterComponent, TranslateModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
