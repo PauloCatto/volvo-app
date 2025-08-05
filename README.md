@@ -4,6 +4,10 @@ Aplicação frontend desenvolvida com Angular, inspirada no desafio oficial da V
 
 ---
 
+## ⚠️ Nota sobre internacionalização e layout
+Algumas melhorias estão em andamento para corrigir problemas de layout quando o idioma do navegador está configurado para Português.
+Recomendo visualizar o projeto com a tradução em Inglês para melhor experiência enquanto as correções são implementadas.
+
 ## 📌 Sobre o Projeto
 
 Este projeto foi criado com foco em **aprendizado prático** e **exploração de boas práticas frontend**, tomando como base o repositório oficial da Volvo Cars:  
