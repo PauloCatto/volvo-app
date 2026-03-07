@@ -171,15 +171,24 @@ export class MapComponent implements OnInit {
         this.directionsRenderer.setDirections(result);
 
         const route = result.routes[0].legs[0];
+        let durationText = route.duration?.text || '';
+
+        // Simple translation for common Portuguese time labels returned by Google Maps
+        durationText = durationText
+          .replace(/horas/g, 'hours')
+          .replace(/hora/g, 'hour')
+          .replace(/minutos/g, 'minutes')
+          .replace(/minuto/g, 'minute');
 
         this.dialog.open(CustomDialogComponent, {
           width: '450px',
           data: {
             title: 'Route Generated',
             subTitle: `Directions to ${store.name}`,
-            message: `Distance: ${route.distance?.text}\nEstimated Duration: ${route.duration?.text}\n\nThe best route has been traced on the map for your convenience.`
+            message: `Distance: ${route.distance?.text}\nEstimated Duration: ${durationText}\n\nThe best route has been traced on the map for your convenience.`
           }
         });
+
       }
     });
   }
