@@ -1,35 +1,107 @@
+.volvo-dialog {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+  font-family: "Inter", "Volvo Novum", sans-serif;
+}
+
 .dialog-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f5f5f5;
+  align-items: flex-start;
+  padding: 32px 32px 24px;
+  background: #fff;
 
-  h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
+  .header-content {
+    h2[mat-dialog-title] {
+      margin: 0;
+      padding: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #111;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 400;
+    }
   }
 
-  button {
-    color: #666;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  .close-btn {
+    color: #999;
+    margin-top: -8px;
+    margin-right: -8px;
+    transition: all 0.2s ease;
 
     &:hover {
+      color: #111;
       background-color: rgba(0, 0, 0, 0.05);
-      border-radius: 50%;
     }
   }
 }
 
-.dialog-content {
-  padding: 0px 16px;
-  font-size: 16px;
-  color: #444;
-  background-color: #fff;
+.dialog-body {
+  padding: 0 32px 32px !important;
+  max-height: 60vh;
+  margin: 0;
+
+  .message-container {
+    p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+      font-weight: 400;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.dialog-footer {
+  padding: 16px 32px 32px !important;
+  display: flex;
+  justify-content: flex-end;
+  background: #fff;
+
+  .primary-btn {
+    background-color: #111 !important;
+    color: #fff !important;
+    padding: 8px 32px !important;
+    border-radius: 2px !important;
+    font-weight: 500 !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    height: 44px !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      background-color: #333 !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+}
+
+/* Scrollbar styling for long messages */
+.dialog-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dialog-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dialog-body::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 10px;
+}
+
+.dialog-body::-webkit-scrollbar-thumb:hover {
+  background: #ddd;
 }
