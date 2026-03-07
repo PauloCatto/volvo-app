@@ -1,146 +1,145 @@
 .news-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 1rem 35px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
 
   h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2.5rem;
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
     text-align: center;
-    color: #004080;
+    color: #111;
+    letter-spacing: -0.5px;
   }
 
   .news-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .news-card {
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    outline-offset: 4px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100%;
-    min-height: 140px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 
-    &:hover,
-    &:focus {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
-      outline: none;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     img {
-      width: 220px;
-      height: 140px;
+      width: 300px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 10px;
       flex-shrink: 0;
-      margin: 25px 15px;
+      transition: transform 0.6s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
     }
 
     .news-text {
-      padding: 1rem 1.5rem;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      flex-grow: 1;
 
       .tag {
         display: inline-block;
-        background-color: #004080;
-        color: white;
-        font-size: 0.75rem;
-        font-weight: 700;
+        background-color: #f4f4f4;
+        color: #111;
+        font-size: 0.7rem;
+        font-weight: 600;
         padding: 4px 10px;
-        border-radius: 4px;
-        margin-bottom: 0.5rem;
+        border-radius: 2px;
+        margin-bottom: 12px;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 1px;
         width: fit-content;
       }
 
       .date {
         font-size: 0.85rem;
-        font-weight: 500;
-        color: #777;
-        margin-bottom: 0.75rem;
+        color: #888;
+        margin-bottom: 8px;
         display: block;
       }
 
       h3 {
-        font-size: 1.25rem;
-        margin: 0 0 0.75rem 0;
-        color: #002050;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0 0 12px;
+        color: #111;
+        letter-spacing: -0.2px;
       }
 
       p {
         font-size: 1rem;
-        line-height: 1.5;
-        color: #444;
+        line-height: 1.6;
+        color: #666;
         margin: 0;
       }
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 850px) {
     .news-card {
       flex-direction: column;
-      min-height: auto;
 
       img {
         width: 100%;
-        height: auto;
-        margin: 0;
-        border-radius: 10px 10px 0 0;
+        height: 250px;
       }
 
       .news-text {
-        padding: 1rem;
+        padding: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    padding: 60px 15px;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .news-card {
+      img {
+        height: 200px;
+      }
+
+      .news-text {
+        padding: 20px;
 
         h3 {
-          font-size: 1.1rem;
+          font-size: 1.25rem;
         }
 
         p {
-          font-size: 0.9rem;
+          font-size: 0.95rem;
         }
       }
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 480px) {
     h2 {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .news-card {
-      .news-text {
-        padding: 0.75rem;
-
-        .tag {
-          font-size: 0.65rem;
-          padding: 3px 8px;
-        }
-
-        .date {
-          font-size: 0.75rem;
-        }
-
-        h3 {
-          font-size: 1rem;
-        }
-
-        p {
-          font-size: 0.85rem;
-        }
-      }
     }
   }
 }

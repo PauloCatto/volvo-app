@@ -1,220 +1,171 @@
 .buses-intro {
-  padding: 32px 24px 16px;
+  padding: 80px 24px 40px;
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 
   h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: 20px;
     color: #111;
   }
 
   p {
-    font-size: 1rem;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
   }
 }
 
 .buses-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 40px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .bus-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
   .bus-image {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
+    background: #f4f4f4;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
+      transition: transform 0.6s ease;
     }
   }
 
   .bus-content {
-    padding: 16px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
     flex-grow: 1;
 
     .bus-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 12px;
 
       .bus-type {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: #888;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: 1px;
       }
 
       .bus-badge {
-        background-color: #007bff;
-        color: #fff;
-        font-size: 0.75rem;
+        background-color: #f4f4f4;
+        color: #111;
+        font-size: 0.7rem;
         padding: 4px 10px;
-        border-radius: 20px;
-        text-transform: capitalize;
+        border-radius: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
       }
     }
 
     .bus-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #222;
-      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #111;
+      margin: 0 0 10px;
     }
 
     .bus-capacity {
-      font-size: 0.95rem;
-      color: #444;
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 24px;
     }
 
     .btn {
       align-self: flex-start;
-      background-color: #111;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
+      background-color: transparent;
+      color: #111;
+      padding: 10px 24px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
       font-weight: 500;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
 
       &:hover {
-        background-color: #333;
+        background-color: #111;
+        color: #fff;
+        border-color: #111;
       }
     }
   }
 }
 
 .favorite-icon {
-  cursor: pointer;
-  color: #999;
-  margin-left: 8px;
-  transition: color 0.2s ease;
   background: none;
   border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  transition: all 0.2s ease;
 
   &.active {
-    color: red;
+    color: #ff4b4b;
+  }
+
+  &:hover {
+    color: #ff4b4b;
   }
 }
 
+
 @media (max-width: 768px) {
   .buses-intro {
-    padding: 24px 16px 12px;
+    padding: 60px 20px 30px;
 
     h2 {
-      font-size: 1.6rem;
+      font-size: 1.75rem;
     }
 
     p {
-      font-size: 0.95rem;
-      padding: 0 0.5rem;
+      font-size: 1rem;
     }
   }
 
   .buses-container {
+    padding: 0 20px 60px;
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 16px;
-  }
-
-  .bus-card .bus-content {
-    padding: 12px;
-    gap: 8px;
-  }
-
-  .bus-card .bus-image {
-    height: 160px;
-  }
-
-  .bus-card .bus-content .bus-title {
-    font-size: 1rem;
-  }
-
-  .bus-card .bus-content .bus-capacity {
-    font-size: 0.9rem;
-  }
-
-  .bus-card .bus-content .btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .buses-intro {
-    padding: 16px 12px 8px;
+    padding: 40px 15px 20px;
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
-
-    p {
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-  }
-
-  .buses-container {
-    gap: 12px;
-    padding: 12px;
-  }
-
-  .bus-card {
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
-  }
-
-  .bus-card .bus-image {
-    height: 140px;
-  }
-
-  .bus-card .bus-content {
-    padding: 10px;
-    gap: 6px;
-  }
-
-  .bus-card .bus-content .bus-title {
-    font-size: 0.95rem;
-  }
-
-  .bus-card .bus-content .bus-capacity {
-    font-size: 0.85rem;
-  }
-
-  .bus-card .bus-content .btn {
-    padding: 6px 14px;
-    font-size: 0.85rem;
   }
 }
