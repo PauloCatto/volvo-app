@@ -6,37 +6,32 @@
   </p>
 
   <div class="map-container">
-    <google-map
-      height="400px"
-      width="100%"
-      [center]="center"
-      [zoom]="zoom"
-      (mapClick)="closeInfo()"
-      (mapInitialized)="mapReady($event)"
-    >
+    <google-map height="400px" width="100%" [center]="center" [zoom]="zoom" (mapClick)="closeInfo()"
+      (mapInitialized)="mapReady($event)">
       <!-- Current User Location Marker -->
-      <map-marker
-        [position]="currentPosition"
-        [icon]="markerIcon"
-        title="Your Location"
-      ></map-marker>
+      <map-marker [position]="currentPosition" [icon]="markerIcon" title="Your Location"></map-marker>
 
       <!-- Store Location Markers -->
-      <map-marker
-        *ngFor="let store of stores"
-        [position]="{ lat: store.lat, lng: store.lng }"
-        [title]="store.name"
-        (mapClick)="openInfo(store, markerRef)"
-        #markerRef="mapMarker"
-      ></map-marker>
+      <map-marker *ngFor="let store of stores" [position]="{ lat: store.lat, lng: store.lng }" [title]="store.name"
+        (mapClick)="openInfo(store, markerRef)" #markerRef="mapMarker"></map-marker>
 
       <!-- Info Window -->
       <map-info-window>
-        <div>
-          <h3>{{ selectedStore?.name }}</h3>
-          <button (click)="onMarkerClick(selectedStore!)">Trace Route</button>
+        <div class="info-window-container">
+          <div class="info-header">
+            <span class="material-icons info-icon">location_on</span>
+            <h3>{{ selectedStore?.name }}</h3>
+          </div>
+          <div class="info-body">
+            <p>{{ selectedStore?.address }}</p>
+            <button class="trace-route-btn" (click)="onMarkerClick(selectedStore!)">
+              <span class="material-icons">directions</span>
+              Trace Route
+            </button>
+          </div>
         </div>
       </map-info-window>
+
     </google-map>
   </div>
 </ng-container>

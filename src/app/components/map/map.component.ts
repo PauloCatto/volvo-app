@@ -151,7 +151,7 @@ export class MapComponent implements OnInit {
     this.infoWindow.close();
   }
 
-  onMarkerClick(store: { lat: number; lng: number }): void {
+  onMarkerClick(store: { lat: number; lng: number; name: string }): void {
     if (
       !this.currentPosition ||
       !this.directionsService ||
@@ -169,9 +169,21 @@ export class MapComponent implements OnInit {
     this.directionsService.route(request, (result, status) => {
       if (status === 'OK' && result) {
         this.directionsRenderer.setDirections(result);
+
+        const route = result.routes[0].legs[0];
+
+        this.dialog.open(CustomDialogComponent, {
+          width: '450px',
+          data: {
+            title: 'Route Generated',
+            subTitle: `Directions to ${store.name}`,
+            message: `Distance: ${route.distance?.text}\nEstimated Duration: ${route.duration?.text}\n\nThe best route has been traced on the map for your convenience.`
+          }
+        });
       }
     });
   }
+
 
   mapReady(event: google.maps.Map | Event): void {
     if (this.directionsRenderer) {
